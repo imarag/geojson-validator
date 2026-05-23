@@ -27,8 +27,6 @@ if settings.node_env == "development":
         allow_methods=["*"],
         allow_headers=["*"],
     )
-else:
-    app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 
 @app.post("/api/validate/file")
@@ -71,3 +69,7 @@ async def get_geojson_config_schema():
 @app.get("/api/config-schema/geometry")
 async def get_geometry_config_schema():
     return generate_frontend_schema(GeometryConfig)
+
+
+if settings.node_env != "development":
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
