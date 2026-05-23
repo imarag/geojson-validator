@@ -4,3 +4,4 @@ pydantic==2.13.4
 pydantic_settings==2.14.1
 Shapely==2.1.2
 uvicorn==0.37.0
+python-multipart==0.0.20
