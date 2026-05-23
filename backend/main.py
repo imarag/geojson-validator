@@ -28,7 +28,7 @@ if settings.node_env == "development":
         allow_headers=["*"],
     )
 else:
-    app.mount("/", StaticFiles(directory="dist", html=True), name="dist")
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 
 @app.post("/api/validate/file")
